@@ -6,7 +6,11 @@ WORKDIR /app/code
 # renovate: datasource=github-releases depName=NodeBB/NodeBB versioning=semver extractVersion=^v(?<version>.+)$
 ARG NODEBB_VERSION=4.6.1
 
-RUN curl -L https://github.com/NodeBB/NodeBB/archive/v${NODEBB_VERSION}.tar.gz | tar -xz --strip-components 1 -f -
+RUN git clone https://github.com/yourusername/your-nodebb-fork.git /tmp/nodebb && \
+    mv /tmp/nodebb/* /app/code/ && \
+    mv /tmp/nodebb/.* /app/code/ 2>/dev/null || true && \
+    rm -rf /tmp/nodebb
+
 RUN cp /app/code/install/package.json /app/code/package.json
 RUN npm install --omit=dev
 

@@ -1,6 +1,6 @@
 {
-  "id": "org.nodebb.cloudronapp",
-  "title": "NodeBB",
+  "id": "org.nodebbcustom.cloudronapp",
+  "title": "NodeBB (Custom)",
   "author": "NodeBB Team",
   "description": "file://DESCRIPTION.md",
   "tagline": "Next generation forum software",
